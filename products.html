@@ -91,12 +91,8 @@
 
   <!-- JQUERY -->
 
-  <script
-    src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-    crossorigin="anonymous">
-  </script>
-  <script src="static/js/jquery.blockUI.js"
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="static/js/jquery.blockUI.js"></script>
   <script type="text/javascript">
 
     $(document).ready(function(){
@@ -106,6 +102,18 @@
       $('#content').block({
         message: '<h1>Processing</h1>',
         css: { border: '3px solid #a00' }
+      });
+
+      $.ajax({
+          url: 'api/products-list.php',
+          cache: false,
+          success: function(data) {
+            console.log($.parseJSON(data))
+          },
+          done: function(data) {
+            //unblock when remote call returns
+            $.unblockUI();
+          }
       });
 
     })
