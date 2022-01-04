@@ -1,0 +1,129 @@
+<html lang="it">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Monos - acquista mono porzioni</title>
+  <meta name="description" content="Vendita di alimenti in monoporizioni">
+  <meta name="author" content="Monos">
+
+  <meta property="og:title" content="Monos - Vendita di alimenti in monoporizioni">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.monos.it>
+  <meta property="og:description" content="Mono porzioni per compleanni, feste, cerimonie">
+
+  <link rel="stylesheet" href="static/css/shared.css?v=1.0">
+  <link rel="stylesheet" href="static/css/style_grid.css?v=1.0">
+  <link rel="stylesheet" href="static/css/menu.css?v=1.0">
+  <link
+   rel="stylesheet"
+   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+   integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+   crossorigin="anonymous"
+  />
+
+  <style>
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-gap: 10px;
+    }
+
+    .item {
+      background: #ffffff;
+      padding: 20px;
+    }
+
+    .product-item {
+      width: 200px;
+      height: 200px;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- NAV BAR -->
+
+  <div class="topnav" id="myTopnav">
+    <a href="index.html" class="active">MONOS - DIY YOUR PARTYBOX </a>
+    <a href="products.html">Our products</a>
+    <a href="about.html">About</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+
+  <!-- NAV BAR: END -->
+
+  <!-- CONTENT -->
+
+  <div id="content">
+
+    <div class="grid">
+      <div class="item">
+        <h2 class="item-title">Patatine</h2>
+        <img src="static/images/patatine-bio.jpg" class="product-item" />
+        <p class="item-description"><b>Description:</b> gfdgdfgdfgdf</p>
+        <p class="item-type"><b>Type:</b> Gluten Free!</p>
+      </div>
+      <div class="item">
+        <img src="static/images/patatine-bio.jpg" class="product-item" />
+      </div>
+      <div class="item">
+        <img src="static/images/patatine-bio.jpg" class="product-item" />
+      </div>
+      <div class="item">
+        <img src="static/images/patatine-bio.jpg" class="product-item" />
+      </div>
+      <div class="item">
+        <img src="static/images/patatine-bio.jpg" class="product-item" />
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CONTENT: END -->
+
+
+  <!-- JQUERY -->
+
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous">
+  </script>
+  <script src="static/js/jquery.blockUI.js"
+  <script type="text/javascript">
+
+    $(document).ready(function(){
+
+      console.log( "ready!" );
+
+      $('#content').block({
+        message: '<h1>Processing</h1>',
+        css: { border: '3px solid #a00' }
+      });
+
+    })
+
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+
+
+
+	</script>
+
+  <!-- JQUERY: END -->
+
+</body>
+</html>

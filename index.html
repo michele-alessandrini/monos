@@ -1,0 +1,97 @@
+<html lang="it">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Monos - acquista mono porzioni</title>
+  <meta name="description" content="Vendita di alimenti in monoporizioni">
+  <meta name="author" content="Monos">
+
+  <meta property="og:title" content="Monos - Vendita di alimenti in monoporizioni">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.monos.it>
+  <meta property="og:description" content="Mono porzioni per compleanni, feste, cerimonie">
+
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="static/css/shared.css?v=1.0">
+  <link rel="stylesheet" href="static/css/menu.css?v=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+
+  <!-- NAV BAR -->
+
+  <div class="topnav" id="myTopnav">
+    <a href="index.html" class="active">MONOS - DIY YOUR PARTYBOX </a>
+    <a href="products.html">Our products</a>
+    <a href="about.html">About</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+
+  <!-- NAV BAR: END -->
+
+  <!-- CONTENT -->
+
+  <form class="exampleone" action="https://postb.in/b/1639402450641-0833626382518">
+    <p>
+  		<img src="static/images/lactose-free.jpg" alt="" height="100" width="100">
+  		<span class="spacer"></span>
+  		<img src="static/images/gluten-free.png" alt=""  height="100" width="100">
+  		<span class="spacer"></span>
+  		<img src="static/images/vegan.jpg" alt=""  height="100" width="100">
+  	</p>
+
+    <div id="slider"></div>
+
+    <input type="submit" />
+  </form>
+
+  <!-- CONTENT: END -->
+
+  <!-- JQUERY -->
+
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous">
+  </script>
+  <script
+    src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js">
+  </script>
+  <script src="static/js/jquery.imgcheckbox.js"></script>
+  <script type="text/javascript">
+
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+
+			$(document).ready(function(){
+
+        $( "#slider" ).slider();
+
+				$("img").imgCheckbox({
+
+          onclick: function(el){
+          	var isChecked = el.hasClass("imgChked"),
+      	    imgEl = el.children()[0];  // the img element
+      	    console.log(imgEl.name + " is now " + (isChecked? "checked": "not-checked") + "!");
+          }
+
+        });
+			})
+	</script>
+
+  <!-- JQUERY: END -->
+
+</body>
+</html>

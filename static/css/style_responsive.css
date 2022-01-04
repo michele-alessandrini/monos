@@ -1,0 +1,67 @@
+/*
+Theme Name: Responsive Web Site
+
+Description:  Tema realizzato in Html5, Responsive. 
+Version: 1.0
+Author: Andrea Marchetti
+Site: http://www.marchettidesign.net
+*/
+
+/* Reset.css */
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {margin: 0;padding: 0;border: 0;font-size: 100%;vertical-align: baseline;}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {display: block;}
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after,
+q:before, q:after { content: ""; content: none; }
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+html {overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+
+/*** General ***/
+body {color: #666;font: 16px/28px;font-family: 'Open Sans', sans-serif;background: #e2e2e0;}
+
+a{text-decoration: none;}
+	
+	/* Structure */
+	#wrapper 		{width: 960px;margin: 0 auto;background:#fff;}
+	#header 		{width: 920px;float:left;padding: 20px 20px 20px 20px; background:#21aabd;} 
+	#mainmenu		{width: 100%;float:left;background: #888}
+	#main 			{width: 920px;float:left;padding: 20px 0px 0px 0px;}
+	
+
+
+/*** Header ***/
+#site-title a 			{font-family: oswald; font-weight: 400; font-size:30px; text-transform:uppercase;float: left;color:#fff;}
+#site-title a:hover 	{background: none;}
+
+
+/*** Menu ***/
+#mainmenu ul 		{margin: 0px 0 0px 0px;float:left;width:100%; list-style: none;}
+#mainmenu ul li 	{float: left;margin: 0 0px 0 0;position: relative;}
+#mainmenu a 		{color: #fff; display: block;font: 14px;padding: 14px 20px;font-family: oswald; text-transform:uppercase;}
+#mainmenu a:hover {background:#666;}
+	
+	
+	/* Button Responsive Menu*/
+	.btn-responsive-menu{display: none;float: right;padding:5px;cursor:pointer;margin:  0px 20px 0 0;color: #ffffff;text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);background:#333;-webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;}
+	.icon-bar 			{display: block;width: 18px;height: 2px;margin:5px;background-color: #f5f5f5;-webkit-border-radius: 1px;-moz-border-radius: 1px;border-radius: 1px;-webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);-moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);}
+
+	.show{display:block!important}
+
+	
+
+
+	
+		
+
+
