@@ -38,6 +38,6 @@
       exit(); // exit and close connection.
   }
 
-  $mysqli->close(); // finally, close the connection
+  $dblink->close(); // finally, close the connection
 
 ?>
