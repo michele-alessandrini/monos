@@ -95,24 +95,15 @@
   <script src="static/js/jquery.blockUI.js"></script>
   <script type="text/javascript">
 
+    $(document).ajaxStart($.blockUI({ message: '<h1>Processing</h1>', css: { backgroundColor: '#f00', color: '#fff'} })).ajaxStop($.unblockUI);
+
     $(document).ready(function(){
-
-      console.log( "ready!" );
-
-      $('#content').block({
-        message: '<h1>Processing</h1>',
-        css: { border: '3px solid #a00' }
-      });
 
       $.ajax({
           url: 'api/products-list.php',
           cache: false,
           success: function(data) {
             console.log($.parseJSON(data))
-          },
-          done: function(data) {
-            //unblock when remote call returns
-            $.unblockUI();
           }
       });
 
