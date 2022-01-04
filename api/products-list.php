@@ -1,4 +1,6 @@
 <?php
+  sleep($_SERVER['DELAY_AJAX_IN_SEC'])
+
 
   $dbhost = $_SERVER['MONOS_DB_HOSTNAME'];
   $dbport = $_SERVER['MONOS_DB_PORT'];
