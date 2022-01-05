@@ -96,6 +96,8 @@
     $(document).ready(function(){
 
 
+      $("div.grid").block({ message: '<h1>Loading...</h1>', css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '13px', backgroundColor: '#04AA6D', color: '#fff'} });
+
         $.ajax({
             url: 'api/products-list.php',
             cache: false,
@@ -104,6 +106,7 @@
             }
         });
 
+      $("div.grid").unblock();
 
 
 			 $("img.img-filter").imgCheckbox({
@@ -146,9 +149,9 @@
       var grid = $("div.grid")
 
       var renderedElement = $('<div class="item"></div>');
-      renderedElement.append('<h2 class="item-title">' + JsonElement["product-name"] + '</h2>');
+      renderedElement.append('<h2 class="item-title">' + JsonElement["productName"] + '</h2>');
       renderedElement.append('<img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/' + JsonElement["id"] + '.jpg" class="product-item" />');
-      renderedElement.append('<p class="item-description"><b>Description:</b> ' + JsonElement["product-description"] + '</p>');
+      renderedElement.append('<p class="item-description"><b>Description:</b> ' + JsonElement["productDescription"] + '</p>');
       renderedElement.append('<p class="item-type"><b>Type:</b> Gluten Free!</p>');
 
       grid.append(renderedElement);
