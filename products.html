@@ -98,10 +98,20 @@
 
       $("div.grid").block({ message: '<h1>Loading...</h1>', css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '13px', backgroundColor: '#04AA6D', color: '#fff'} });
 
+        var isCheckedVegan = $("#filterVegan").parent().hasClass("imgChked");
+        var isCheckedGluten = $("#filterGluten").parent().hasClass("imgChked");
+        var isCheckedLactose = $("#filterLactose").parent().hasClass("imgChked");
+
         $.ajax({
             url: 'api/products-list.php',
             cache: false,
+            data: {
+              gluten: isCheckedGluten,
+              lactose: isCheckedLactose,
+              vegan: isCheckedVegan
+            },
             success: function(data) {
+              $("div.grid").empty();
               renderArrayJson($.parseJSON(data));
             }
         });
@@ -113,12 +123,9 @@
 
           onclick: function(el){
 
-          	var isCheckedVegan = $("#filterVegan").parent().hasClass("imgChked");
+            var isCheckedVegan = $("#filterVegan").parent().hasClass("imgChked");
             var isCheckedGluten = $("#filterGluten").parent().hasClass("imgChked");
             var isCheckedLactose = $("#filterLactose").parent().hasClass("imgChked");
-            console.log ("Vegan = " + isCheckedVegan);
-            console.log ("Gluten = " + isCheckedGluten);
-            console.log ("Lactose = " + isCheckedLactose);
 
             $("div.grid").block({ message: '<h1>Loading...</h1>', css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '13px', backgroundColor: '#04AA6D', color: '#fff'} });
 

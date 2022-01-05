@@ -21,6 +21,18 @@
       }
 
       //Fetch 3 rows from actor table
+
+      $sqlString = "SELECT DISTINCT p.productName, p.productDescription as ProductName FROM `monos-db`.products p
+	                     LEFT OUTER JOIN `monos-db`.product_type pt ON  p.id = pt.idProduct
+                       LEFT OUTER JOIN `monos-db`.types_of_products top ON pt.idType = top.id";
+      if($_GET["vegan"] == "true")
+      {
+        $sqlString += " WHERE top.id = 1"
+      }
+      $sqlString += " ORDER BY p.productName DESC";
+
+
+
       $result = $dblink->query("SELECT * FROM products");
 
       //Initialize array variable
