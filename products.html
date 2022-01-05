@@ -28,7 +28,6 @@
 
     .filter {
       display: inline-grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       grid-gap: 10px;
     }
 
@@ -67,13 +66,13 @@
 
     <div class="filter">
       <div>
-        <img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/lactose-free.jpg" class="img-filter" alt="" height="100" width="100">
+        <img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/lactose-free.jpg" class="img-filter" name="lactose" id="filterLactose" alt="" height="100" width="100">
       </div>
       <div>
-        <img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/gluten-free.png" class="img-filter" alt=""  height="100" width="100">
+        <img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/gluten-free.png" class="img-filter" name="gluten" id="filterGluten" alt=""  height="100" width="100">
       </div>
       <div>
-        <img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/vegan.jpg" class="img-filter" alt=""  height="100" width="100">
+        <img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/vegan.jpg" class="img-filter" alt="" name="vegan" id="filterVegan"  height="100" width="100">
       </div>
     </div>
 
@@ -108,10 +107,28 @@
 			$("img.img-filter").imgCheckbox({
 
           onclick: function(el){
-          	var isChecked = el.hasClass("imgChked"),
-      	    imgEl = el.children()[0];  // the img element
-      	    console.log(imgEl.name + " is now " + (isChecked? "checked": "not-checked") + "!");
-          }
+          	var isCheckedVegan = $("#filterVegan").hasClass("imgChked");
+            var isCheckenGluten = $("#filterGluten").hasClass("imgChked");
+            var isCheckenLactose = $("#filterLactose").hasClass("imgChked");
+            console.log ("Vegan = " + isCheckedVegan);
+            console.log ("Gluten = " + isCheckenGluten);
+            console.log ("Lactose = " + isCheckedVegan);
+      	    //console.log(imgEl.name + " is now " + (isChecked? "checked": "not-checked") + "!");
+
+            $.ajax({
+                url: 'api/products-list.php',
+                data: {
+                  gluten: 4,
+                  lactose: UserID,
+                  vegan: EmailAddress
+                },
+                cache: false,
+                success: function(data) {
+                  renderArrayJson($.parseJSON(data));
+                }
+            });
+
+         }
 
       });
 
