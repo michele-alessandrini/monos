@@ -33,7 +33,7 @@
 
 
 
-      $result = $dblink->query("SELECT * FROM products");
+      $result = $dblink->query($sqlString);
 
       //Initialize array variable
       $dbdata = array();
