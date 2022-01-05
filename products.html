@@ -13,9 +13,9 @@
   <meta property="og:url" content="https://www.monosapp.com>
   <meta property="og:description" content="Single snacks for safe parties and events">
 
-  <link rel="stylesheet" href="static/css/shared.css?v=1.0" />
-  <link rel="stylesheet" href="static/css/style_grid.css?v=1.0" />
-  <link rel="stylesheet" href="static/css/menu.css?v=1.0" />
+  <link rel="stylesheet" href="//s3.eu-south-1.amazonaws.com/static.monosapp.com/css/shared.css?v=1.0" />
+  <link rel="stylesheet" href="//s3.eu-south-1.amazonaws.com/static.monosapp.com/css/style_grid.css?v=1.0" />
+  <link rel="stylesheet" href="//s3.eu-south-1.amazonaws.com/static.monosapp.com/css/menu.css?v=1.0" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
 
   <style>
@@ -69,7 +69,7 @@
   <!-- JQUERY -->
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="static/js/jquery.blockUI.js"></script>
+  <script src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/js/jquery.blockUI.js"></script>
   <script type="text/javascript">
 
     $(document).ajaxStart($.blockUI({ message: '<h1>Loading...</h1>', css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '17px', backgroundColor: '#04AA6D', color: '#fff'} })).ajaxStop($.unblockUI);
@@ -92,7 +92,7 @@
 
       var renderedElement = $('<div class="item"></div>');
       renderedElement.append('<h2 class="item-title">' + JsonElement["product-name"] + '</h2>');
-      renderedElement.append('<img src="static/images/' + JsonElement["id"] + '.jpg" class="product-item" />');
+      renderedElement.append('<img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/' + JsonElement["id"] + '.jpg" class="product-item" />');
       renderedElement.append('<p class="item-description"><b>Description:</b> ' + JsonElement["product-description"] + '</p>');
       renderedElement.append('<p class="item-type"><b>Type:</b> Gluten Free!</p>');
 
