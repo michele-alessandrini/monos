@@ -117,7 +117,7 @@
             console.log ("Gluten = " + isCheckedGluten);
             console.log ("Lactose = " + isCheckedLactose);
 
-            $.blockUI({ message: '<h1>Loading...</h1>', css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '13px', backgroundColor: '#04AA6D', color: '#fff'} });
+            $("div.grid").block({ message: '<h1>Loading...</h1>', css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '13px', backgroundColor: '#04AA6D', color: '#fff'} });
 
             $.ajax({
                 url: 'api/products-list.php',
@@ -128,11 +128,12 @@
                 },
                 cache: false,
                 success: function(data) {
+                  $("div.grid").empty();
                   renderArrayJson($.parseJSON(data));
                 }
             });
 
-            $.unblockUI();
+            $("div.grid").unblock();
 
          }
 
