@@ -127,8 +127,6 @@
             var isCheckedGluten = $("#filterGluten").parent().hasClass("imgChked");
             var isCheckedLactose = $("#filterLactose").parent().hasClass("imgChked");
 
-            $("div.grid").block({ message: '<h1>Loading...</h1>', css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '13px', backgroundColor: '#04AA6D', color: '#fff'} });
-
             $.ajax({
                 url: 'api/products-list.php',
                 data: {
@@ -138,12 +136,12 @@
                 },
                 cache: false,
                 success: function(data) {
+                  $("div.grid").block({ message: '<h1>Loading...</h1>', css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '13px', backgroundColor: '#04AA6D', color: '#fff'} });
                   $("div.grid").empty();
                   renderArrayJson($.parseJSON(data));
+                  $("div.grid").unblock();
                 }
             });
-
-            $("div.grid").unblock();
 
          }
 
