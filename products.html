@@ -107,20 +107,23 @@
 			$("img.img-filter").imgCheckbox({
 
           onclick: function(el){
-          	var isCheckedVegan = $("#filterVegan").hasClass("imgChked");
-            var isCheckenGluten = $("#filterGluten").hasClass("imgChked");
-            var isCheckenLactose = $("#filterLactose").hasClass("imgChked");
+
+
+
+          	var isCheckedVegan = $("#filterVegan").parent().hasClass("imgChked");
+            var isCheckenGluten = $("#filterGluten").parent().hasClass("imgChked");
+            var isCheckenLactose = $("#filterLactose").parent().hasClass("imgChked");
             console.log ("Vegan = " + isCheckedVegan);
             console.log ("Gluten = " + isCheckenGluten);
-            console.log ("Lactose = " + isCheckedVegan);
+            console.log ("Lactose = " + isCheckedLactose);
       	    //console.log(imgEl.name + " is now " + (isChecked? "checked": "not-checked") + "!");
 
             $.ajax({
                 url: 'api/products-list.php',
                 data: {
-                  gluten: 4,
-                  lactose: UserID,
-                  vegan: EmailAddress
+                  gluten: isCheckenGluten,
+                  lactose: isCheckedLactose,
+                  vegan: isCheckedVegan
                 },
                 cache: false,
                 success: function(data) {
