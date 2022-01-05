@@ -117,6 +117,8 @@
             console.log ("Gluten = " + isCheckedGluten);
             console.log ("Lactose = " + isCheckedLactose);
 
+            $.blockUI({ message: '<h1>Loading...</h1>', css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '13px', backgroundColor: '#04AA6D', color: '#fff'} });
+
             $.ajax({
                 url: 'api/products-list.php',
                 data: {
@@ -129,6 +131,8 @@
                   renderArrayJson($.parseJSON(data));
                 }
             });
+
+            $.unblockUI();
 
          }
 
