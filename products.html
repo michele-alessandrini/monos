@@ -59,24 +59,6 @@
   <div id="content">
 
     <div class="grid">
-      <div class="item">
-        <h2 class="item-title">Patatine</h2>
-        <img src="static/images/patatine-bio.jpg" class="product-item" />
-        <p class="item-description"><b>Description:</b> gfdgdfgdfgdf</p>
-        <p class="item-type"><b>Type:</b> Gluten Free!</p>
-      </div>
-      <div class="item">
-        <img src="static/images/patatine-bio.jpg" class="product-item" />
-      </div>
-      <div class="item">
-        <img src="static/images/patatine-bio.jpg" class="product-item" />
-      </div>
-      <div class="item">
-        <img src="static/images/patatine-bio.jpg" class="product-item" />
-      </div>
-      <div class="item">
-        <img src="static/images/patatine-bio.jpg" class="product-item" />
-      </div>
     </div>
 
   </div>
@@ -110,7 +92,7 @@
 
       var renderedElement = $('<div class="item"></div>');
       renderedElement.append('<h2 class="item-title">' + JsonElement["product-name"] + '</h2>');
-      renderedElement.append('<img src="static/images/' + JsonElement["product-id"] + '.jpg" class="product-item" />');
+      renderedElement.append('<img src="static/images/' + JsonElement["id"] + '.jpg" class="product-item" />');
       renderedElement.append('<p class="item-description"><b>Description:</b> ' + JsonElement["product-description"] + '</p>');
       renderedElement.append('<p class="item-type"><b>Type:</b> Gluten Free!</p>');
 
