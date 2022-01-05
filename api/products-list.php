@@ -27,9 +27,9 @@
                        LEFT OUTER JOIN `monos-db`.types_of_products top ON pt.idType = top.id";
       if($_GET["vegan"] == "true")
       {
-        $sqlString += " WHERE top.id = 1";
+        $sqlString .= " WHERE top.id = 1";
       }
-      $sqlString += " ORDER BY p.productName DESC";
+      $sqlString .= " ORDER BY p.productName DESC";
 
 
 
