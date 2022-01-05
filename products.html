@@ -106,15 +106,24 @@
 
     function renderJsonElementToHTMLContainer(JsonElement)
     {
-      //var renderedElement = '<div class="item">';
-        //renderedElement.
+      var grid = $("div.grid")
+
+      var renderedElement = $('<div class="item"></div>');
+      renderedElement.append('<h2 class="item-title">' + JsonElement["product-name"] + '</h2>');
+      renderedElement.append('<img src="static/images/' + JsonElement["product-id"] + '.jpg" class="product-item" />');
+      renderedElement.append('<p class="item-description"><b>Description:</b> ' + JsonElement["product-description"] + '</p>');
+      renderedElement.append('<p class="item-type"><b>Type:</b> Gluten Free!</p>');
+
+      grid.append(renderedElement);
+
     }
 
     function renderArrayJson(JsonArray)
     {
       console.log("Eccomi qui");
       $.each(JsonArray, function(i, item) {
-          console.log(item["product-name"]);
+          console.log(item);
+          renderJsonElementToHTML(item);
       });
 
     }
