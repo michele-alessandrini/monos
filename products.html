@@ -10,18 +10,13 @@
 
   <meta property="og:title" content="Monos - Vendita di alimenti in monoporizioni">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.monos.it>
+  <meta property="og:url" content="https://www.monosapp.com>
   <meta property="og:description" content="Mono porzioni per compleanni, feste, cerimonie">
 
-  <link rel="stylesheet" href="static/css/shared.css?v=1.0">
-  <link rel="stylesheet" href="static/css/style_grid.css?v=1.0">
-  <link rel="stylesheet" href="static/css/menu.css?v=1.0">
-  <link
-   rel="stylesheet"
-   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
-   integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
-   crossorigin="anonymous"
-  />
+  <link rel="stylesheet" href="static/css/shared.css?v=1.0" />
+  <link rel="stylesheet" href="static/css/style_grid.css?v=1.0" />
+  <link rel="stylesheet" href="static/css/menu.css?v=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
 
   <style>
     .grid {
@@ -52,7 +47,7 @@
     <a href="index.html" class="active">MONOS - DIY YOUR PARTYBOX </a>
     <a href="products.html">Our products</a>
     <a href="about.html">About</a>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <a href="javascript:void(0);" class="icon" onclick="hideMenu()">
       <i class="fa fa-bars"></i>
     </a>
   </div>
@@ -103,14 +98,28 @@
           url: 'api/products-list.php',
           cache: false,
           success: function(data) {
-
-            console.log($.parseJSON(data))
+            renderArrayJson($.parseJSON(data));
           }
       });
 
     })
 
-    function myFunction() {
+    function renderJsonElementToHTMLContainer(JsonElement)
+    {
+      //var renderedElement = '<div class="item">';
+        //renderedElement.
+    }
+
+    function renderArrayJson(JsonArray)
+    {
+      console.log("Eccomi qui");
+      $.each(JsonArray, function(i, item) {
+          console.log(item["product-name"]);
+      });
+
+    }
+
+    function hideMenu() {
       var x = document.getElementById("myTopnav");
       if (x.className === "topnav") {
         x.className += " responsive";
@@ -118,8 +127,6 @@
         x.className = "topnav";
       }
     }
-
-
 
 	</script>
 
