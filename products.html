@@ -17,10 +17,17 @@
   <link rel="stylesheet" href="//s3.eu-south-1.amazonaws.com/static.monosapp.com/css/style_grid.css?v=1.0" />
   <link rel="stylesheet" href="//s3.eu-south-1.amazonaws.com/static.monosapp.com/css/menu.css?v=1.0" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <style>
     .grid {
       display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-gap: 10px;
+    }
+
+    .filter {
+      display: inline-grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       grid-gap: 10px;
     }
@@ -58,6 +65,18 @@
 
   <div id="content">
 
+    <div class="filter">
+      <div>
+        <img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/lactose-free.jpg" class="img-filter" alt="" height="100" width="100">
+      </div>
+      <div>
+        <img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/gluten-free.png" class="img-filter" alt=""  height="100" width="100">
+      </div>
+      <div>
+        <img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/vegan.jpg" class="img-filter" alt=""  height="100" width="100">
+      </div>
+    </div>
+
     <div class="grid">
     </div>
 
@@ -70,6 +89,7 @@
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/js/jquery.blockUI.js"></script>
+  <script src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/js/jquery.imgcheckbox.js"></script>
   <script type="text/javascript">
 
     $(document).ajaxStart($.blockUI({ message: '<h1>Loading...</h1>', css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '13px', backgroundColor: '#04AA6D', color: '#fff'} })).ajaxStop($.unblockUI);
@@ -82,6 +102,17 @@
           success: function(data) {
             renderArrayJson($.parseJSON(data));
           }
+      });
+
+
+			$("img.img-filter").imgCheckbox({
+
+          onclick: function(el){
+          	var isChecked = el.hasClass("imgChked"),
+      	    imgEl = el.children()[0];  // the img element
+      	    console.log(imgEl.name + " is now " + (isChecked? "checked": "not-checked") + "!");
+          }
+
       });
 
     })
