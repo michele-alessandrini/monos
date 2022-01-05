@@ -95,33 +95,32 @@
 
     $(document).ready(function(){
 
-      $.ajax({
-          url: 'api/products-list.php',
-          cache: false,
-          success: function(data) {
-            renderArrayJson($.parseJSON(data));
-          }
-      });
+
+        $.ajax({
+            url: 'api/products-list.php',
+            cache: false,
+            success: function(data) {
+              renderArrayJson($.parseJSON(data));
+            }
+        });
 
 
-			$("img.img-filter").imgCheckbox({
+
+			 $("img.img-filter").imgCheckbox({
 
           onclick: function(el){
 
-
-
           	var isCheckedVegan = $("#filterVegan").parent().hasClass("imgChked");
-            var isCheckenGluten = $("#filterGluten").parent().hasClass("imgChked");
-            var isCheckenLactose = $("#filterLactose").parent().hasClass("imgChked");
+            var isCheckedGluten = $("#filterGluten").parent().hasClass("imgChked");
+            var isCheckedLactose = $("#filterLactose").parent().hasClass("imgChked");
             console.log ("Vegan = " + isCheckedVegan);
-            console.log ("Gluten = " + isCheckenGluten);
+            console.log ("Gluten = " + isCheckedGluten);
             console.log ("Lactose = " + isCheckedLactose);
-      	    //console.log(imgEl.name + " is now " + (isChecked? "checked": "not-checked") + "!");
 
             $.ajax({
                 url: 'api/products-list.php',
                 data: {
-                  gluten: isCheckenGluten,
+                  gluten: isCheckedGluten,
                   lactose: isCheckedLactose,
                   vegan: isCheckedVegan
                 },
