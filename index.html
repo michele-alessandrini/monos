@@ -158,6 +158,22 @@
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/js/jquery.blockUI.js"></script>
+  <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+  <script>
+
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('630cbbbb35f56d8c042d', {
+      cluster: 'eu'
+    });
+
+    var channel = pusher.subscribe('monos');
+    channel.bind('my-shopping', function(data) {
+      alert(JSON.stringify(data));
+    });
+    
+  </script>
   <script type="text/javascript">
 
     $(document).ajaxStop($.unblockUI);
@@ -166,7 +182,7 @@
 
         //$.blockUI({ message: '<h1>Loading...</h1>', css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '13px', backgroundColor: '#04AA6D', color: '#fff'});
 
-        $.blockUI({ message: '<h1>Loading...</h1>', css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '13px', backgroundColor: '#04AA6D', color: '#fff' });
+        $.blockUI({ message: '<h1>Loading...</h1>' }, css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '13px', backgroundColor: '#04AA6D', color: '#fff' });
 
 
         var isCheckedVegan = $("#filterVegan").parent().hasClass("imgChked");
@@ -201,8 +217,8 @@
             var isCheckedGluten = $("#filterGluten").parent().hasClass("imgChked");
             var isCheckedLactose = $("#filterLactose").parent().hasClass("imgChked");
 
-            $.blockUI({ message: '<h1>Loading...</h1>', css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '13px', backgroundColor: '#04AA6D', color: '#fff' });
-            
+            $.blockUI({ message: '<h1>Loading...</h1>' }, css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '13px', backgroundColor: '#04AA6D', color: '#fff' });
+
             $.ajax({
                 url: 'api/products-list.php',
                 data: {
