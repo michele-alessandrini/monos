@@ -53,7 +53,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       grid-gap: 10px;
-      padding-left: 10px;
+      padding-left: 0px;
       margin: 2em;
     }
 
@@ -84,6 +84,10 @@
 
     .grid .item .item-image img {
       width: 150px;
+    }
+
+    .grid .item .item-image img:hover {
+      cursor: pointer;
     }
 
   </style>
@@ -141,7 +145,6 @@
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/js/jquery.blockUI.js"></script>
-  <script src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/js/jquery.imgcheckbox.js"></script>
   <script type="text/javascript">
 
     $(document).ajaxStart($.blockUI({ message: '<h1>Loading...</h1>', css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '13px', backgroundColor: '#04AA6D', color: '#fff'} })).ajaxStop($.unblockUI);
