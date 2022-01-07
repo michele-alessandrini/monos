@@ -226,6 +226,8 @@
 
           var idToAdd = $(this).attr("id");
 
+          var qtyToAdd = $("spinner" + idToAdd).val();
+
           $.blockUI({ message: '<h1>Loading...</h1>' , css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '13px', backgroundColor: '#04AA6D', color: '#fff' }});
 
           $.ajax({
@@ -233,7 +235,8 @@
               cache: false,
               method: "POST",
               data: {
-                idToAdd: idToAdd
+                idToAdd: idToAdd,
+                qtytoAdd: qtyToAdd
               },
               success: function(data) {
 
@@ -294,13 +297,12 @@
       renderedElement.append('<p class="item-image"><img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/' + JsonElement["id"] + '.jpg" class="product-item" /></p>');
       renderedElement.append('<p class="item-description"><b>Description:</b> ' + JsonElement["productDescription"] + '</p>');
       renderedElement.append('<p class="item-type"><b>Type:</b> Gluten Free!</p>');
-      renderedElement.append('<div class="callToAction"><div><label for="spinner">How many? </label><input id="spinner" class="spinner" name="value"></div><div><a href="#/" class="cta" id="' + JsonElement["id"] + '">Add to my box</a></div></div>');
+      renderedElement.append('<div class="callToAction"><div><label for="spinner">How many? </label><input id="spinner' + JsonElement["id"] + '" class="spinner" name="value"></div><div><a href="#/" class="cta" id="' + JsonElement["id"] + '">Add to my box</a></div></div>');
       grid.append(renderedElement);
 
       $("input.spinner").spinner({
         min: 0
       });
-
 
     }
 
