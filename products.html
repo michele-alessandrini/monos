@@ -49,6 +49,10 @@
       padding: 2px;
     }
 
+    .filterBox img:hover {
+      cursor: pointer;
+    }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -84,10 +88,6 @@
 
     .grid .item .item-image img {
       width: 150px;
-    }
-
-    .grid .item .item-image img:hover {
-      cursor: pointer;
     }
 
   </style>
@@ -170,7 +170,11 @@
         });
 
 
-			 $("div.filter span").click(function() {
+			 $("#filterContent span").click(function() {
+
+            var id = $(this).attr("id");
+            console.log(id);
+            $(this).parent().toggleClass("imgChked");
 
             var isCheckedVegan = $("#filterVegan").parent().hasClass("imgChked");
             var isCheckedGluten = $("#filterGluten").parent().hasClass("imgChked");
