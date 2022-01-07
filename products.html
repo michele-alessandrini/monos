@@ -84,12 +84,13 @@
       border-top: 1px solid #04AA6D;
       padding: 10px;
       text-align: center;
+    }
+
+    .grid .callToAction a {
       position: relative;
       background: url(//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/icons8-add-basket-30.png) no-repeat center left;
       padding-left : 20px;
     }
-
-
 
     .grid .item .item-image {
       text-align: center;
@@ -179,6 +180,11 @@
             }
         });
 
+        $(".grid .callToAction a").click(function(e) {
+          console.log($(this).attr("id"));
+          e.preventDefault();
+        });
+
 
 			 $("#filterContent span").click(function() {
 
@@ -215,7 +221,7 @@
       renderedElement.append('<p class="item-image"><img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/' + JsonElement["id"] + '.jpg" class="product-item" /></p>');
       renderedElement.append('<p class="item-description"><b>Description:</b> ' + JsonElement["productDescription"] + '</p>');
       renderedElement.append('<p class="item-type"><b>Type:</b> Gluten Free!</p>');
-      renderedElement.append('<div class="callToAction"><a href="#">Add to my box</a></div>');
+      renderedElement.append('<div class="callToAction"><a href="#/" id="' + JsonElement["productDescription"] + '">Add to my box</a></div>');
 
       grid.append(renderedElement);
 
