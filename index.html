@@ -115,8 +115,8 @@
     <a href="index.html" class="active">MONOS - DIY YOUR PARTYBOX </a>
     <a href="about.html">About</a>
     <span class="iconBlock">
-      <a href="javascript:void(0);" onclick="hideMenu()">
-        <i class="fas fa-shopping-cart"> (0)</i>
+      <a href="javascript:void(0);">
+        <i class="fas fa-shopping-cart"> (<span id="itemInCart">0</span>)</i>
       </a>
       <a href="javascript:void(0);" class="icon" onclick="hideMenu()">
         <i class="fas fa-bars"></i>
@@ -175,7 +175,7 @@
     var channel = pusher.subscribe('monos');
 
     channel.bind('my-shopping', function(data) {
-      $("li.cart").text(JSON.stringify(data));  
+      $("#itemInCart").text(JSON.stringify(data));
     });
 
   </script>
