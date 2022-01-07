@@ -172,9 +172,7 @@
 
 			 $("#filterContent span").click(function() {
 
-            var id = $(this).attr("id");
-            console.log(id);
-            $(this).parent().toggleClass("imgChked");
+            $(this).toggleClass("imgChked");
 
             var isCheckedVegan = $("#filterVegan").parent().hasClass("imgChked");
             var isCheckedGluten = $("#filterGluten").parent().hasClass("imgChked");
