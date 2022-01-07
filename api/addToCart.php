@@ -24,8 +24,8 @@
 
       $sqlString = "INSERT INTO shopping_cart (idProduct) VALUES(" . $_REQUEST['idToAdd'] . ")";
 
-      if ($dblink->query($sqlString) === TRUE)
-      {
+      $res = $dblink->query($sqlString)
+      
         $options = array(
           'cluster' => 'eu',
           'useTLS' => true
@@ -40,7 +40,6 @@
 
         $data = rand(1, 10);
         $pusher->trigger('monos', 'my-shopping', $data);
-      }
 
   } catch (mysqli_sql_exception $e) { // Failed to connect? Lets see the exception details..
         echo "MySQLi Error Code: " . $e->getCode() . "<br />";
