@@ -205,7 +205,7 @@
             }
         });
 
-        $("a.cta").click(function(e) {
+        $("body").on("click", "a.cta", function() {
           console.log($(this).attr("id"));
           e.preventDefault();
         });
