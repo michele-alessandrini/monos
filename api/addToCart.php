@@ -1,6 +1,6 @@
 <?php
 
-  require '/vendor/autoload.php';
+  require $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
   sleep($_SERVER['DELAY_AJAX_IN_SEC']);
 
