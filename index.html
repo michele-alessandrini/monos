@@ -130,7 +130,7 @@
 
   <div id="content">
 
-  <br />
+  <br /><br />
 
   <div class="filterBox">
 
@@ -185,10 +185,7 @@
 
     $(document).ready(function(){
 
-        //$.blockUI({ message: '<h1>Loading...</h1>', css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '13px', backgroundColor: '#04AA6D', color: '#fff'});
-
         $.blockUI({ message: '<h1>Loading...</h1>' , css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '13px', backgroundColor: '#04AA6D', color: '#fff' }});
-
 
         var isCheckedVegan = $("#filterVegan").parent().hasClass("imgChked");
         var isCheckedGluten = $("#filterGluten").parent().hasClass("imgChked");
@@ -213,6 +210,19 @@
           e.preventDefault();
         });
 
+       $.ajax({
+           url: 'api/products-list.php',
+           cache: false,
+           data: {
+             gluten: isCheckedGluten,
+             lactose: isCheckedLactose,
+             vegan: isCheckedVegan
+           },
+           success: function(data) {
+             $("ul.grid").empty();
+             renderArrayJson($.parseJSON(data));
+           }
+       });
 
 			 $("#filterContent span").click(function() {
 
