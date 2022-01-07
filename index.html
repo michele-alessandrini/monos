@@ -115,10 +115,6 @@
 
 <body>
 
-  <div id="dialog" title="New item in the bag">
-    <p>The item has been added successfully!</p>
-  </div>
-
   <!-- NAV BAR -->
 
   <div class="topnav" id="myTopnav">
@@ -196,8 +192,6 @@
 
     $(document).ready(function(){
 
-        $("#dialog").dialog();
-
         $.blockUI({ message: '<h1>Loading...</h1>' , css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '13px', backgroundColor: '#04AA6D', color: '#fff' }});
 
         var isCheckedVegan = $("#filterVegan").parent().hasClass("imgChked");
@@ -232,7 +226,7 @@
                 idToAdd: idToAdd
               },
               success: function(data) {
-                $("#dialog").dialog("open");
+
               }
           });
 
