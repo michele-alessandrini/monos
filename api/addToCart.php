@@ -24,8 +24,8 @@
 
       $sqlString = "INSERT INTO shopping_cart (idProduct) VALUES(" . $_REQUEST['idToAdd'] . ")";
 
-      $res = $dblink->query($sqlString)
-      
+      $res = $dblink->query($sqlString);
+
         $options = array(
           'cluster' => 'eu',
           'useTLS' => true
