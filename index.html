@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="//s3.eu-south-1.amazonaws.com/static.monosapp.com/css/shared.css?v=1.0" />
   <link rel="stylesheet" href="//s3.eu-south-1.amazonaws.com/static.monosapp.com/css/style_grid.css?v=1.0" />
   <link rel="stylesheet" href="//s3.eu-south-1.amazonaws.com/static.monosapp.com/css/menu.css?v=1.0" />
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
   <script src="https://kit.fontawesome.com/34c98f7075.js" crossorigin="anonymous"></script>
 
 
@@ -117,6 +118,11 @@
 
   <!-- NAV BAR -->
 
+  <p>
+  <label for="spinner">Select a value:</label>
+  <input id="spinner" name="value">
+</p>
+
   <div class="topnav" id="myTopnav">
     <a href="index.html" class="active">MONOS - DIY YOUR PARTYBOX </a>
     <a href="about.html">About</a>
@@ -167,7 +173,7 @@
   <!-- JQUERY -->
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
   <script src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/js/jquery.blockUI.js"></script>
   <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
   <script type="text/javascript">
@@ -191,6 +197,9 @@
     $(document).ajaxStop($.unblockUI);
 
     $(document).ready(function(){
+
+        var spinner = $( "#spinner" ).spinner();
+
 
         $.blockUI({ message: '<h1>Loading...</h1>' , css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '13px', backgroundColor: '#04AA6D', color: '#fff' }});
 
