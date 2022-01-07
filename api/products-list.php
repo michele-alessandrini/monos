@@ -20,12 +20,16 @@
          exit();
       }
 
-      //Fetch 3 rows from actor table
+      //Check filters
 
-      $sqlString = "SELECT DISTINCT p.productName, p.productDescription as ProductName FROM `monos-db`.products p
+      $isVegan = $_GET["vegan"] ?? "false";
+      $isGluten = $_GET["gluten"] ?? "false";
+      $isLactose = $_GET["lactose"] ?? "false";
+
+      $sqlString = "SELECT DISTINCT p.id, p.productName, p.productDescription as ProductName FROM `monos-db`.products p
 	                     LEFT OUTER JOIN `monos-db`.product_type pt ON  p.id = pt.idProduct
                        LEFT OUTER JOIN `monos-db`.types_of_products top ON pt.idType = top.id";
-      if($_GET["vegan"] == "true")
+      if($isVegan == "true")
       {
         $sqlString .= " WHERE top.id = 1";
       }
