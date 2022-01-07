@@ -206,8 +206,23 @@
         });
 
         $("body").on("click", "a.cta", function() {
-          console.log($(this).attr("id"));
-          e.preventDefault();
+
+          var idToAdd = $(this).attr("id");
+          console.log(idToAdd);
+
+          $.ajax({
+              url: 'api/addToCart.php',
+              cache: false,
+              method: POST,
+              data: {
+                idToAdd: idToAdd
+              },
+              success: function(data) {
+                alert("Item added");
+              }
+          });
+
+
         });
 
        $.ajax({
@@ -261,7 +276,7 @@
       renderedElement.append('<p class="item-image"><img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/' + JsonElement["id"] + '.jpg" class="product-item" /></p>');
       renderedElement.append('<p class="item-description"><b>Description:</b> ' + JsonElement["productDescription"] + '</p>');
       renderedElement.append('<p class="item-type"><b>Type:</b> Gluten Free!</p>');
-      renderedElement.append('<div class="callToAction"><a href="#/" class="cta" id="' + JsonElement["productDescription"] + '">Add to my box</a></div>');
+      renderedElement.append('<div class="callToAction"><a href="#/" class="cta" id="' + JsonElement["id"] + '">Add to my box</a></div>');
 
       grid.append(renderedElement);
 
