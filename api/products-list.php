@@ -26,7 +26,7 @@
       $isGluten = $_GET["gluten"] ?? "false";
       $isLactose = $_GET["lactose"] ?? "false";
 
-      $sqlString = "SELECT DISTINCT p.id, p.productName, p.productDescription as ProductName FROM `monos-db`.products p
+      $sqlString = "SELECT DISTINCT p.id, p.productName, p.productDescription FROM `monos-db`.products p
 	                     LEFT OUTER JOIN `monos-db`.product_type pt ON  p.id = pt.idProduct
                        LEFT OUTER JOIN `monos-db`.types_of_products top ON pt.idType = top.id";
       if($isVegan == "true")
