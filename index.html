@@ -166,7 +166,7 @@
 
         //$.blockUI({ message: '<h1>Loading...</h1>', css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '13px', backgroundColor: '#04AA6D', color: '#fff'});
 
-        $.blockUI({ message: '<h1>Loading...</h1>' });
+        $.blockUI({ message: '<h1>Loading...</h1>', css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '13px', backgroundColor: '#04AA6D', color: '#fff' });
 
 
         var isCheckedVegan = $("#filterVegan").parent().hasClass("imgChked");
@@ -201,7 +201,7 @@
             var isCheckedGluten = $("#filterGluten").parent().hasClass("imgChked");
             var isCheckedLactose = $("#filterLactose").parent().hasClass("imgChked");
 
-            $.blockUI({ message: '<h1>Loading...</h1>' });
+            $.blockUI({ message: '<h1>Loading...</h1>', css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '13px', backgroundColor: '#04AA6D', color: '#fff' });
             
             $.ajax({
                 url: 'api/products-list.php',
