@@ -24,8 +24,6 @@
     $options
   );
 
-  $data['message'] = rand(1, 10);
+  $data = rand(1, 10);
   $pusher->trigger('monos', 'my-shopping', $data);
-?>
-
 ?>
