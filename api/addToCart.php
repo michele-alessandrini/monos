@@ -22,7 +22,7 @@
          exit();
       }
 
-      $sqlString = "INSERT INTO shopping_cart (idProduct) VALUES($_REQUEST['idToAdd'])";
+      $sqlString = "INSERT INTO shopping_cart (idProduct) VALUES(" . $_REQUEST['idToAdd'] . ")";
 
       if ($dblink->query($sqlString) === TRUE)
       {
