@@ -163,7 +163,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/js/jquery.blockUI.js"></script>
   <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
-  <script>
+  <script type="text/javascript">
 
     // Enable pusher logging - don't include this in production
     Pusher.logToConsole = true;
@@ -173,8 +173,9 @@
     });
 
     var channel = pusher.subscribe('monos');
+
     channel.bind('my-shopping', function(data) {
-      alert(JSON.stringify(data));
+      $("li.cart").text(JSON.stringify(data));  
     });
 
   </script>

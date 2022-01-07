@@ -28,6 +28,13 @@
   display: none;
 }
 
+.iconBlock {
+  display:block;
+  position:absolute;
+  right:0
+}
+
+
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child) {display: none;}
   .topnav a.icon, .topnav a.cart {
