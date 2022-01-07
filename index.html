@@ -196,7 +196,7 @@
 
     $(document).ready(function(){
 
-        $( "#dialog" ).dialog({ 'autoOpen': false } );
+        $("#dialog").dialog();
 
         $.blockUI({ message: '<h1>Loading...</h1>' , css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '13px', backgroundColor: '#04AA6D', color: '#fff' }});
 
@@ -232,7 +232,7 @@
                 idToAdd: idToAdd
               },
               success: function(data) {
-                $( "#dialog" ).dialog("open");
+                $("#dialog").dialog("open");
               }
           });
 
