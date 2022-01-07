@@ -25,7 +25,7 @@
       $qta = $_REQUEST['qtytoAdd'];
       $idP = $_REQUEST['idToAdd'];
 
-      $sqlString = "INSERT INTO shopping_cart (idProduct, qtyProduct) VALUES(" . $idP . ", " . $qta . ") ON DUPLICATE KEY UPDATE idProduct= " . $idP . ", qtyProduct=" . $qta;
+      $sqlString = "INSERT INTO shopping_cart (idProduct, qtyProduct) VALUES(" . $idP . ", " . $qta . ") ON DUPLICATE KEY UPDATE idProduct= " . $idP . ", qtyProduct = qtyProduct + " . $qta;
 
       $res = $dblink->query($sqlString);
 
