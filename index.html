@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="//s3.eu-south-1.amazonaws.com/static.monosapp.com/css/menu.css?v=1.0" />
   <script src="https://kit.fontawesome.com/34c98f7075.js" crossorigin="anonymous"></script>
 
+
   <style>
 
     .filterBox {
@@ -114,6 +115,10 @@
 
 <body>
 
+  <div id="dialog" title="New item in the bag">
+    <p>The item has been added successfully!</p>
+  </div>
+
   <!-- NAV BAR -->
 
   <div class="topnav" id="myTopnav">
@@ -166,6 +171,7 @@
   <!-- JQUERY -->
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
   <script src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/js/jquery.blockUI.js"></script>
   <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
   <script type="text/javascript">
@@ -189,6 +195,8 @@
     $(document).ajaxStop($.unblockUI);
 
     $(document).ready(function(){
+
+        $( "#dialog" ).dialog({ 'autoOpen': false } );
 
         $.blockUI({ message: '<h1>Loading...</h1>' , css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '13px', backgroundColor: '#04AA6D', color: '#fff' }});
 
@@ -224,7 +232,7 @@
                 idToAdd: idToAdd
               },
               success: function(data) {
-                alert("Item added");
+                $( "#dialog" ).dialog("open");
               }
           });
 
