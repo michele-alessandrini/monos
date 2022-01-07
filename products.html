@@ -20,37 +20,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <style>
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      grid-gap: 10px;
-
-      border: #3c5a86 1px dotted;
-      padding-top: 1px;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-bottom: 30px;
-      border: 1px white;
-      border-radius: 9px;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
-    }
-
-    .filterBox span {
-      display: inline-block;
-      width: 100px;
-      height: 100px;
-      padding: 2px;
-    }
 
     .filterBox {
         border: #3c5a86 1px dotted;
+        width: auto;
         padding-top: 1px;
-        padding-left: 50px;
-        padding-right: 50px;
-        padding-bottom: 30px;
-        border: 1px white;
-        border-radius: 9px;
-        box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+        padding-left: 10px;
+        padding-bottom: 10px;
+        border: 1px black solid;
      }
 
     .filterBox #filterTitle {
@@ -63,13 +40,36 @@
       border: 1px solid black;
     }
 
+    .filterBox span {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      padding: 2px;
+    }
 
-    .item {
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-gap: 10px;
+      background-color: white;
+      padding-top: 10px;
+      padding-left: 10px;
+      margin: 2em;
+    }
+
+    .grid .item {
       background: #ffffff;
       padding: 20px;
     }
 
-    .product-item {
+    .grid .callToAction {
+      margin-top: auto;
+      border-top: 1px solid #04AA6D;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .grid .item .product-item {
       width: 200px;
       height: 200px;
     }
@@ -97,25 +97,28 @@
 
   <div id="content">
 
+  <br />
+
   <div class="filterBox">
 
       <div id="filterTitle">Filter by:</div>
 
       <div id="filterContent">
-        <span>
-          <img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/lactose-free.jpg" class="img-filter" name="lactose" id="filterLactose" alt="" height="100" width="100">
-        </span>
-        <span>
-          <img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/gluten-free.png" class="img-filter" name="gluten" id="filterGluten" alt=""  height="100" width="100">
-        </span>
-        <span>
-          <img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/vegan.jpg" class="img-filter" alt="" name="vegan" id="filterVegan"  height="100" width="100">
-        </span>
+          <span>
+            <img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/lactose-free.jpg" class="img-filter" name="lactose" id="filterLactose" alt="" height="100" width="100">
+          </span>
+          <span>
+            <img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/gluten-free.png" class="img-filter" name="gluten" id="filterGluten" alt=""  height="100" width="100">
+          </span>
+          <span>
+            <img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/vegan.jpg" class="img-filter" alt="" name="vegan" id="filterVegan"  height="100" width="100">
+          </span>
       </div>
+
   </div>
 
-    <div class="grid">
-    </div>
+  <ul class="grid">
+  </ul>
 
   </div>
 
@@ -146,7 +149,7 @@
               vegan: isCheckedVegan
             },
             success: function(data) {
-              $("div.grid").empty();
+              $("ul.grid").empty();
               renderArrayJson($.parseJSON(data));
             }
         });
@@ -167,7 +170,7 @@
                 },
                 cache: false,
                 success: function(data) {
-                  $("div.grid").empty();
+                  $("ul.grid").empty();
                   renderArrayJson($.parseJSON(data));
                 }
             });
@@ -178,13 +181,14 @@
 
     function renderJsonElementToHTML(JsonElement)
     {
-      var grid = $("div.grid")
+      var grid = $("ul.grid")
 
-      var renderedElement = $('<div class="item"></div>');
+      var renderedElement = $('<li class="item"></li>');
       renderedElement.append('<h2 class="item-title">' + JsonElement["productName"] + '</h2>');
       renderedElement.append('<img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/' + JsonElement["id"] + '.jpg" class="product-item" />');
       renderedElement.append('<p class="item-description"><b>Description:</b> ' + JsonElement["productDescription"] + '</p>');
       renderedElement.append('<p class="item-type"><b>Type:</b> Gluten Free!</p>');
+      renderedElement.append('<div class="callToAction">Add to my box</div>');
 
       grid.append(renderedElement);
 
