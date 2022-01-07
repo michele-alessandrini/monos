@@ -194,11 +194,8 @@
 
     $(document).ready(function(){
 
-
-        $("body").on("load", ".spinner", function() {
-          $(this).spinner({
+        $(".spinner").spinner({
                 min: 0
-          });
         });
 
         $.blockUI({ message: '<h1>Loading...</h1>' , css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '13px', backgroundColor: '#04AA6D', color: '#fff' }});
