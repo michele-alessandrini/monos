@@ -1,9 +1,3 @@
-body {
-  margin: 0;
-  background-color: #474e5d;
-  font-family: Helvetica, sans-serif;
-}
-
 
 .topnav {
   overflow: hidden;
@@ -36,7 +30,7 @@ body {
 
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child) {display: none;}
-  .topnav a.icon {
+  .topnav a.icon, .topnav a.cart {
     float: right;
     display: block;
   }
