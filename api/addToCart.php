@@ -1,6 +1,6 @@
 <?php
 
-  require __DIR__ . '/vendor/autoload.php';
+  require '/vendor/autoload.php';
 
   sleep($_SERVER['DELAY_AJAX_IN_SEC']);
 
