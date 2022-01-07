@@ -24,12 +24,45 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       grid-gap: 10px;
+
+      border: #3c5a86 1px dotted;
+      padding-top: 1px;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-bottom: 30px;
+      border: 1px white;
+      border-radius: 9px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
     }
 
-    .filter {
-      display: inline-grid;
-      grid-gap: 10px;
+    .filterBox span {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      padding: 2px;
     }
+
+    .filterBox {
+        border: #3c5a86 1px dotted;
+        padding-top: 1px;
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-bottom: 30px;
+        border: 1px white;
+        border-radius: 9px;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+     }
+
+    .filterBox #filterTitle {
+      position: relative;
+      top: -0.5em;
+      margin-left: 1em;
+      display: inline;
+      padding: 2px;
+      background-color: white;
+      border: 1px solid black;
+    }
+
 
     .item {
       background: #ffffff;
@@ -64,17 +97,22 @@
 
   <div id="content">
 
-    <div class="filter">
-      <div>
-        <img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/lactose-free.jpg" class="img-filter" name="lactose" id="filterLactose" alt="" height="100" width="100">
+  <div class="filterBox">
+
+      <div id="filterTitle">Filter by:</div>
+
+      <div id="filterContent">
+        <span>
+          <img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/lactose-free.jpg" class="img-filter" name="lactose" id="filterLactose" alt="" height="100" width="100">
+        </span>
+        <span>
+          <img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/gluten-free.png" class="img-filter" name="gluten" id="filterGluten" alt=""  height="100" width="100">
+        </span>
+        <span>
+          <img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/vegan.jpg" class="img-filter" alt="" name="vegan" id="filterVegan"  height="100" width="100">
+        </span>
       </div>
-      <div>
-        <img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/gluten-free.png" class="img-filter" name="gluten" id="filterGluten" alt=""  height="100" width="100">
-      </div>
-      <div>
-        <img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/vegan.jpg" class="img-filter" alt="" name="vegan" id="filterVegan"  height="100" width="100">
-      </div>
-    </div>
+  </div>
 
     <div class="grid">
     </div>
@@ -114,7 +152,7 @@
         });
 
 
-			 $("div.filter").children('img').click(function() {
+			 $("div.filter span").click(function() {
 
             var isCheckedVegan = $("#filterVegan").parent().hasClass("imgChked");
             var isCheckedGluten = $("#filterGluten").parent().hasClass("imgChked");
