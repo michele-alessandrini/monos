@@ -13,10 +13,98 @@
   <meta property="og:url" content="https://www.monosapp.com>
   <meta property="og:description" content="Single snacks for safe parties and events">
 
-  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="//s3.eu-south-1.amazonaws.com/static.monosapp.com/css/shared.css?v=1.0">
-  <link rel="stylesheet" href="//s3.eu-south-1.amazonaws.com/static.monosapp.com/css/menu.css?v=1.0">
+  <link rel="stylesheet" href="//s3.eu-south-1.amazonaws.com/static.monosapp.com/css/shared.css?v=1.0" />
+  <link rel="stylesheet" href="//s3.eu-south-1.amazonaws.com/static.monosapp.com/css/style_grid.css?v=1.0" />
+  <link rel="stylesheet" href="//s3.eu-south-1.amazonaws.com/static.monosapp.com/css/menu.css?v=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+
+    .filterBox {
+        border: #04AA6D 1px dotted;
+        width: auto;
+        padding-top: 1px;
+        padding-left: 10px;
+        padding-bottom: 10px;
+        border: 1px black solid;
+        background-color: white;
+        margin: 2em;
+     }
+
+    .filterBox #filterTitle {
+      position: relative;
+      top: -0.5em;
+      margin-left: 1em;
+      display: inline;
+      padding: 2px;
+      background-color: white;
+      border: 1px solid #04AA6D;
+    }
+
+    .filterBox span {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      padding: 2px;
+    }
+
+    .filterBox span.imgChked img {
+      transform: scale(0.8);
+      filter: grayscale(80%);
+    }
+
+    .filterBox img:hover {
+      cursor: pointer;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-gap: 10px;
+      padding-left: 0px;
+      margin: 2em;
+    }
+
+    .grid .item {
+      background: white;
+      padding: 20px;
+      border: 1px solid #04AA6D;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .grid .item h2 {
+      color: #04AA6D;
+      width: 100%;
+    }
+
+    .grid .callToAction {
+      margin-top: auto;
+      border-top: 1px solid #04AA6D;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .grid .callToAction a.cta {
+      position: relative;
+      width:80%;
+      background: url(//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/icons8-add-basket-30.png) no-repeat center left;
+      padding-left : 35px;
+      padding-top : 20px;
+      padding-bottom : 20px;
+    }
+
+    .grid .item .item-image {
+      text-align: center;
+      width: 100%;
+    }
+
+    .grid .item .item-image img {
+      width: 150px;
+    }
+
+  </style>
 
 </head>
 
@@ -37,34 +125,118 @@
 
   <!-- CONTENT -->
 
-  <form class="exampleone" action="https://postb.in/b/1639402450641-0833626382518">
-    <p>
-  		<img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/lactose-free.jpg" alt="" height="100" width="100">
-  		<span class="spacer"></span>
-  		<img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/gluten-free.png" alt=""  height="100" width="100">
-  		<span class="spacer"></span>
-  		<img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/vegan.jpg" alt=""  height="100" width="100">
-  	</p>
+  <div id="content">
 
-    <div id="slider"></div>
+  <br />
 
-    <input type="submit" />
-  </form>
+  <div class="filterBox">
+
+      <div id="filterTitle">Filter by:</div>
+
+      <div id="filterContent">
+          <span>
+            <img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/lactose-free.jpg" class="img-filter" name="lactose" id="filterLactose" alt="" height="100" width="100">
+          </span>
+          <span>
+            <img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/gluten-free.png" class="img-filter" name="gluten" id="filterGluten" alt=""  height="100" width="100">
+          </span>
+          <span>
+            <img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/vegan.jpg" class="img-filter" alt="" name="vegan" id="filterVegan"  height="100" width="100">
+          </span>
+      </div>
+
+  </div>
+
+  <ul class="grid">
+  </ul>
+
+  </div>
 
   <!-- CONTENT: END -->
 
+
   <!-- JQUERY -->
 
-  <script
-    src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-    crossorigin="anonymous">
-  </script>
-  <script
-    src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js">
-  </script>
-  <script src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/js/jquery.imgcheckbox.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/js/jquery.blockUI.js"></script>
   <script type="text/javascript">
+
+    $(document).ajaxStart($.blockUI({ message: '<h1>Loading...</h1>', css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '13px', backgroundColor: '#04AA6D', color: '#fff'} })).ajaxStop($.unblockUI);
+
+    $(document).ready(function(){
+
+        var isCheckedVegan = $("#filterVegan").parent().hasClass("imgChked");
+        var isCheckedGluten = $("#filterGluten").parent().hasClass("imgChked");
+        var isCheckedLactose = $("#filterLactose").parent().hasClass("imgChked");
+
+        $.ajax({
+            url: 'api/products-list.php',
+            cache: false,
+            data: {
+              gluten: isCheckedGluten,
+              lactose: isCheckedLactose,
+              vegan: isCheckedVegan
+            },
+            success: function(data) {
+              $("ul.grid").empty();
+              renderArrayJson($.parseJSON(data));
+            }
+        });
+
+        $("a.cta").click(function(e) {
+          console.log($(this).attr("id"));
+          e.preventDefault();
+        });
+
+
+			 $("#filterContent span").click(function() {
+
+            $(this).toggleClass("imgChked");
+
+            var isCheckedVegan = $("#filterVegan").parent().hasClass("imgChked");
+            var isCheckedGluten = $("#filterGluten").parent().hasClass("imgChked");
+            var isCheckedLactose = $("#filterLactose").parent().hasClass("imgChked");
+
+            $.ajax({
+                url: 'api/products-list.php',
+                data: {
+                  gluten: isCheckedGluten,
+                  lactose: isCheckedLactose,
+                  vegan: isCheckedVegan
+                },
+                cache: false,
+                success: function(data) {
+                  $("ul.grid").empty();
+                  renderArrayJson($.parseJSON(data));
+                }
+            });
+
+         });
+
+    })
+
+    function renderJsonElementToHTML(JsonElement)
+    {
+      var grid = $("ul.grid")
+
+      var renderedElement = $('<li class="item"></li>');
+      renderedElement.append('<h2 class="item-title">' + JsonElement["productName"] + '</h2>');
+      renderedElement.append('<p class="item-image"><img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/' + JsonElement["id"] + '.jpg" class="product-item" /></p>');
+      renderedElement.append('<p class="item-description"><b>Description:</b> ' + JsonElement["productDescription"] + '</p>');
+      renderedElement.append('<p class="item-type"><b>Type:</b> Gluten Free!</p>');
+      renderedElement.append('<div class="callToAction"><a href="#/" class="cta" id="' + JsonElement["productDescription"] + '">Add to my box</a></div>');
+
+      grid.append(renderedElement);
+
+    }
+
+    function renderArrayJson(JsonArray)
+    {
+      $.each(JsonArray, function(i, item) {
+          renderJsonElementToHTML(item);
+      });
+
+    }
 
     function hideMenu() {
       var x = document.getElementById("myTopnav");
@@ -75,20 +247,6 @@
       }
     }
 
-			$(document).ready(function(){
-
-        $( "#slider" ).slider();
-
-				$("img").imgCheckbox({
-
-          onclick: function(el){
-          	var isChecked = el.hasClass("imgChked"),
-      	    imgEl = el.children()[0];  // the img element
-      	    console.log(imgEl.name + " is now " + (isChecked? "checked": "not-checked") + "!");
-          }
-
-        });
-			})
 	</script>
 
   <!-- JQUERY: END -->
