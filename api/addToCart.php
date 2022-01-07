@@ -22,7 +22,9 @@
          exit();
       }
 
-      $sqlString = "INSERT INTO shopping_cart (idProduct) VALUES(" . $_REQUEST['idToAdd'] . ")";
+      $qta = $_REQUEST['qtytoAdd'];
+
+      $sqlString = "INSERT INTO shopping_cart (idProduct, qtyProduct) VALUES(" . $_REQUEST['idToAdd'] . ", " . $qta . ")";
 
       $res = $dblink->query($sqlString);
 
