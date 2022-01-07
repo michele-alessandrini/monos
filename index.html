@@ -16,8 +16,7 @@
   <link rel="stylesheet" href="//s3.eu-south-1.amazonaws.com/static.monosapp.com/css/shared.css?v=1.0" />
   <link rel="stylesheet" href="//s3.eu-south-1.amazonaws.com/static.monosapp.com/css/style_grid.css?v=1.0" />
   <link rel="stylesheet" href="//s3.eu-south-1.amazonaws.com/static.monosapp.com/css/menu.css?v=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/34c98f7075.js" crossorigin="anonymous"></script>
 
   <style>
 
@@ -116,7 +115,10 @@
     <a href="index.html" class="active">MONOS - DIY YOUR PARTYBOX </a>
     <a href="about.html">About</a>
     <a href="javascript:void(0);" class="icon" onclick="hideMenu()">
-      <i class="fa fa-bars"></i>
+      <i class="fas fa-shopping-cart"></i>
+    </a>
+    <a href="javascript:void(0);" class="icon" onclick="hideMenu()">
+      <i class="fas fa-bars"></i>
     </a>
   </div>
 
@@ -217,7 +219,8 @@
             var isCheckedGluten = $("#filterGluten").parent().hasClass("imgChked");
             var isCheckedLactose = $("#filterLactose").parent().hasClass("imgChked");
 
-$.blockUI({ message: '<h1>Loading...</h1>' , css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '13px', backgroundColor: '#04AA6D', color: '#fff' }});
+            $.blockUI({ message: '<h1>Loading...</h1>' , css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '13px', backgroundColor: '#04AA6D', color: '#fff' }});
+
             $.ajax({
                 url: 'api/products-list.php',
                 data: {
