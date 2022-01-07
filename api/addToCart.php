@@ -12,18 +12,41 @@
   $username = $_SERVER['MONOS_DB_UID'];
   $password = $_SERVER['MONOS_DB_PWD'];
 
-  $options = array(
-    'cluster' => 'eu',
-    'useTLS' => true
-  );
+  try {
+      // Try Connect to the DB with new MySqli object - Params {hostname, userid, password, dbname}
+      $dblink = new mysqli($dbhost, $username, $password, $dbname, $dbport);
 
-  $pusher = new Pusher\Pusher(
-    '630cbbbb35f56d8c042d',
-    '0908f6e4c160170defe2',
-    '1327975',
-    $options
-  );
+      //Check connection was successful
+      if ($dblink->connect_errno) {
+         printf("Failed to connect to database");
+         exit();
+      }
 
-  $data = rand(1, 10);
-  $pusher->trigger('monos', 'my-shopping', $data);
+      $sqlString .= "INSERT INTO shopping_cart (idProduct) VALUES($_REQUEST['idToAdd'])";
+
+      if ($dblink->query($sqlString) === TRUE)
+      {
+        $options = array(
+          'cluster' => 'eu',
+          'useTLS' => true
+        );
+
+        $pusher = new Pusher\Pusher(
+          '630cbbbb35f56d8c042d',
+          '0908f6e4c160170defe2',
+          '1327975',
+          $options
+        );
+
+        $data = rand(1, 10);
+        $pusher->trigger('monos', 'my-shopping', $data);
+      }
+
+  } catch (mysqli_sql_exception $e) { // Failed to connect? Lets see the exception details..
+        echo "MySQLi Error Code: " . $e->getCode() . "<br />";
+        echo "Exception Msg: " . $e->getMessage();
+        exit(); // exit and close connection.
+  }
+
+  $dblink->close(); // finally, close the connection
 ?>

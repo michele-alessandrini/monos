@@ -208,7 +208,8 @@
         $("body").on("click", "a.cta", function() {
 
           var idToAdd = $(this).attr("id");
-          console.log(idToAdd);
+
+          $.blockUI({ message: '<h1>Loading...</h1>' , css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '13px', backgroundColor: '#04AA6D', color: '#fff' }});
 
           $.ajax({
               url: 'api/addToCart.php',
