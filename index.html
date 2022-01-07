@@ -290,7 +290,8 @@
       renderedElement.append('<p class="item-image"><img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/' + JsonElement["id"] + '.jpg" class="product-item" /></p>');
       renderedElement.append('<p class="item-description"><b>Description:</b> ' + JsonElement["productDescription"] + '</p>');
       renderedElement.append('<p class="item-type"><b>Type:</b> Gluten Free!</p>');
-      renderedElement.append('<div class="callToAction"><input id="spinner" class="spinner" name="value"> <a href="#/" class="cta" id="' + JsonElement["id"] + '">Add to my box</a></div>');
+      renderedElement.append('<div class="callToAction"><label for="spinner">How many? </label><input id="spinner" class="spinner" name="value"></div>');
+      renderedElement.append('<div class="callToAction"><a href="#/" class="cta" id="' + JsonElement["id"] + '">Add to my box</a></div>');
 
       grid.append(renderedElement);
 
