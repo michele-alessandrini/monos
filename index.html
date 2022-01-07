@@ -198,12 +198,6 @@
 
     $(document).ready(function(){
 
-        $("input").on("click", "input.spinner", function() {
-                ${this}.spinner({
-                  min: 0
-                });
-        });
-
         $.blockUI({ message: '<h1>Loading...</h1>' , css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '13px', backgroundColor: '#04AA6D', color: '#fff' }});
 
         var isCheckedVegan = $("#filterVegan").parent().hasClass("imgChked");
@@ -298,8 +292,10 @@
       renderedElement.append('<p class="item-type"><b>Type:</b> Gluten Free!</p>');
       renderedElement.append('<div class="callToAction"><label for="spinner">How many? </label><input id="spinner" class="spinner" name="value"></div>');
       renderedElement.append('<div class="callToAction"><a href="#/" class="cta" id="' + JsonElement["id"] + '">Add to my box</a></div>');
-
       grid.append(renderedElement);
+
+      $("input.spinner").spinner();
+
 
     }
 
