@@ -33,7 +33,7 @@
 
       if ($isVegan == "true" || $isGluten == "true" || $isLactose == "true")
       {
-        $sqlString .= " AND (1 = 1";
+        $sqlString .= " AND (1 = 2";
       }
 
       if($isVegan == "true")
