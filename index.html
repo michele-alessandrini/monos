@@ -124,9 +124,10 @@
 
 <body>
 
+  <!-- MODAL FOR CART -->
+  <div class="cart_dialog"></div>
+
   <!-- NAV BAR -->
-
-
   <div class="topnav" id="myTopnav">
     <a href="index.html" class="active">MONOS - SINGLE PORTIONS</a>
     <a href="about.html">About</a>
@@ -201,6 +202,35 @@
     $(document).ajaxStop($.unblockUI);
 
     $(document).ready(function(){
+
+
+        $( ".cart_dialog" ).dialog({
+          buttons: [
+            {
+              text: "Ok",
+              icon: "ui-icon-trash",
+              click: function() {
+
+                $.ajax({
+                    url: 'api/emptyCart.php',
+                    cache: false
+                });
+
+              }
+
+            },
+            {
+              text: "Cancel",
+              icon: "ui-icon-close",
+              click: function() {
+
+                $( this ).dialog( "close" );
+              }
+
+            }
+          ]
+        });
+
 
         $.blockUI({ message: '<h1>Loading...</h1>' , css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '11px', backgroundColor: '#04AA6D', color: '#fff' }});
 
