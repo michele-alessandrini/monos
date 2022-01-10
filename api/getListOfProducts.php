@@ -59,6 +59,7 @@
         $sqlString .= ")";
       }
 
+      $sqlString .= " GROUP BY p.id, p.productName, p.productDescription";
       $sqlString .= " ORDER BY p.productName DESC";
 
 
