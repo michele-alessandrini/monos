@@ -206,10 +206,12 @@
         $("body").on("click", "a.shoppingcart", function() {
 
             $( ".cart_dialog" ).dialog({
+              position: { my: "left top", at: "left bottom", of: body }
               modal:true,
+              text: "Do you want to empty your shpping cart?"
               buttons: [
                 {
-                  text: "Ok",
+                  text: "Yes, please",
                   icon: "ui-icon-trash",
                   click: function() {
 
