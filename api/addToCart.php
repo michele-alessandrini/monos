@@ -42,7 +42,7 @@
         );
 
         $sqlString = "SELECT IFNULL(SUM(qtyProduct), 0) qtyShoppingBag FROM shopping_cart";
-        $data = $dblink->query($sqlString)->fetch_object()->qtyShoppingBag;
+        $data = intval($dblink->query($sqlString)->fetch_object()->qtyShoppingBag);
         $pusher->trigger('monos', 'my-shopping', $data);
 
   } catch (mysqli_sql_exception $e) { // Failed to connect? Lets see the exception details..
