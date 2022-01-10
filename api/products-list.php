@@ -28,11 +28,22 @@
 
       $sqlString = "SELECT DISTINCT p.id, p.productName, p.productDescription FROM `monos-db`.products p
 	                     LEFT OUTER JOIN `monos-db`.product_type pt ON  p.id = pt.idProduct
-                       LEFT OUTER JOIN `monos-db`.types_of_products top ON pt.idType = top.id";
+                       LEFT OUTER JOIN `monos-db`.types_of_products top ON pt.idType = top.id
+                       WHERE 1 = 1";
+
       if($isVegan == "true")
       {
-        $sqlString .= " WHERE top.id = 1";
+        $sqlString .= " AND top.id = 1";
       }
+      if($isGluten == "true")
+      {
+        $sqlString .= " AND top.id = 2";
+      }
+      if($isLactose == "true")
+      {
+        $sqlString .= " AND top.id = 3";
+      }
+
       $sqlString .= " ORDER BY p.productName DESC";
 
 

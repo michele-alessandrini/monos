@@ -41,7 +41,8 @@
           $options
         );
 
-        $data = rand(1, 10);
+        $sqlString = "SELECT SUM(qtyProduct) qtyShoppingBag FROM shopping_cart";
+        $data = $dblink->query($sqlString)->fetch_object()->qtyShoppingBag;
         $pusher->trigger('monos', 'my-shopping', $data);
 
   } catch (mysqli_sql_exception $e) { // Failed to connect? Lets see the exception details..
