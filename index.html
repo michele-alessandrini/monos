@@ -215,6 +215,8 @@
                   icon: "ui-icon-trash",
                   click: function() {
 
+                    $.blockUI({ message: '<h1>Deleting...</h1>' , css: { 'font-family': 'Helvetica, sans-serif', 'font-size': '11px', backgroundColor: '#04AA6D', color: '#fff' }});
+
                     $.ajax({
                         url: 'api/emptyCart.php',
                         cache: false
@@ -233,7 +235,7 @@
 
                 }
               ]
-          }).text("Do you want to empty your shpping cart?");
+          }).text("Do you want to empty your shopping cart?");
 
       });
 
