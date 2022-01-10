@@ -22,28 +22,21 @@
          exit();
       }
 
-      $qta = $_REQUEST['qtytoAdd'];
-      $idP = $_REQUEST['idToAdd'];
+      $options = array(
+        'cluster' => 'eu',
+        'useTLS' => true
+      );
 
-      $sqlString = "INSERT INTO shopping_cart (idProduct, qtyProduct) VALUES(" . $idP . ", " . $qta . ") ON DUPLICATE KEY UPDATE idProduct= " . $idP . ", qtyProduct = qtyProduct + " . $qta;
+      $pusher = new Pusher\Pusher(
+        '630cbbbb35f56d8c042d',
+        '0908f6e4c160170defe2',
+        '1327975',
+        $options
+      );
 
-      $res = $dblink->query($sqlString);
-
-        $options = array(
-          'cluster' => 'eu',
-          'useTLS' => true
-        );
-
-        $pusher = new Pusher\Pusher(
-          '630cbbbb35f56d8c042d',
-          '0908f6e4c160170defe2',
-          '1327975',
-          $options
-        );
-
-        $sqlString = "SELECT IFNULL(SUM(qtyProduct), 0) qtyShoppingBag FROM shopping_cart";
-        $data = $dblink->query($sqlString)->fetch_object()->qtyShoppingBag;
-        $pusher->trigger('monos', 'my-shopping', $data);
+      $sqlString = "SELECT IFNULL(SUM(qtyProduct), 0) qtyShoppingBag FROM shopping_cart";
+      $data = intval($dblink->query($sqlString)->fetch_object()->qtyShoppingBag);
+      $pusher->trigger('monos', 'my-shopping', $data);
 
   } catch (mysqli_sql_exception $e) { // Failed to connect? Lets see the exception details..
         echo "MySQLi Error Code: " . $e->getCode() . "<br />";
