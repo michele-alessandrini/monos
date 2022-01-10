@@ -123,7 +123,7 @@
       width: 30px;
     }
 
-    .no-close .ui-dialog-titlebar-close {display: none }
+    .ui-dialog-titlebar-close {display: none }
 
   </style>
 
@@ -228,9 +228,10 @@
                         url: 'api/emptyCart.php',
                         cache: false,
                         success: function(data) {
-                          $(this).dialog("close");
                         }
                     });
+
+                    $(this).dialog("close");
 
                   }
 
