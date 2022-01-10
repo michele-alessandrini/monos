@@ -224,7 +224,10 @@
 
                     $.ajax({
                         url: 'api/emptyCart.php',
-                        cache: false
+                        cache: false,
+                        success: function(data) {
+                          $(this).dialog("close");
+                        }
                     });
 
                   }
