@@ -208,7 +208,7 @@
             $( ".cart_dialog" ).dialog({
               position: { my: "center", at: "center", of: window },
               modal:true,
-              text: "Do you want to empty your shpping cart?",
+              title: "Shopping Cart",
               buttons: [
                 {
                   text: "Yes, please",
@@ -233,7 +233,7 @@
 
                 }
               ]
-          });
+          }).text("text: "Do you want to empty your shpping cart?");
 
       });
 
