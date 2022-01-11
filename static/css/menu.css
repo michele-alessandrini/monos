@@ -23,7 +23,7 @@
 }
 
 .topnav a.active {
-  background: #04AA6D;
+  background-color: #04AA6D;
   color: white;
 }
 
@@ -39,7 +39,7 @@
 
 
 @media screen and (max-width: 600px) {
-  .topnav a:not(:first-child) {display: none;}
+
   .topnav a.icon, .topnav a.cart {
     float: right;
     display: block;
@@ -53,6 +53,7 @@
     right: 0;
     top: 0;
   }
+
   .topnav.responsive a {
     float: none;
     display: block;

@@ -373,9 +373,18 @@
 
     function renderArrayJson(JsonArray)
     {
+      var count = 0;
       $.each(JsonArray, function(i, item) {
           renderJsonElementToHTML(item);
+          count = count + 1;
       });
+
+      if(count == 0)
+      {
+        var grid = $("ul.grid")
+        var renderedElement = $('<li class="item">No results</li>');
+        grid.append(renderedElement);
+      }
 
     }
 
