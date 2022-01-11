@@ -29,6 +29,7 @@
       $sqlString = "SELECT DISTINCT p.id,
                                     p.productName,
                                     p.productDescription,
+                                    p.productImage,
                                     IFNULL(GROUP_CONCAT(DISTINCT top.type
                                           ORDER BY top.type SEPARATOR ', '), '-') as TypeOfProduct
                        FROM `monos-db`.products p
@@ -59,7 +60,7 @@
         $sqlString .= ")";
       }
 
-      $sqlString .= " GROUP BY p.id, p.productName, p.productDescription";
+      $sqlString .= " GROUP BY p.id, p.productName, p.productDescription, p.productImage";
       $sqlString .= " ORDER BY p.productName DESC";
 
 

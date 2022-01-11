@@ -221,7 +221,7 @@
 
             $( ".cart_dialog" ).dialog({
               dialogClass: "no-close",
-              position: { my: "center bottom", at: "center", of: "#myTopnav" },
+              position: { my: "center bottom+20%", at: "center", of: "#myTopnav" },
               modal:true,
               title: "Shopping Cart",
               resizable: false,
@@ -359,7 +359,7 @@
 
       var renderedElement = $('<li class="item"></li>');
       renderedElement.append('<h2 class="item-title">' + JsonElement["productName"] + '</h2>');
-      renderedElement.append('<p class="item-image"><img src="//s3.eu-south-1.amazonaws.com/static.monosapp.com/images/' + JsonElement["id"] + '.jpg" class="product-item" /></p>');
+      renderedElement.append('<p class="item-image"><img src="' + JsonElement["productImage"] + '" class="product-item" /></p>');
       renderedElement.append('<p class="item-description"><b>Description:</b> ' + JsonElement["productDescription"] + '</p>');
       renderedElement.append('<p class="item-type"><b>Type:</b> ' + JsonElement["TypeOfProduct"] + '</p>');
       renderedElement.append('<div class="callToAction"><div><label for="spinner">How many? </label><input id="spinner' + JsonElement["id"] + '" class="spinner" name="value"></div><div><a href="#/" class="cta" id="' + JsonElement["id"] + '">Add to my box</a></div></div>');
