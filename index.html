@@ -123,7 +123,14 @@
       width: 30px;
     }
 
-    .ui-dialog-titlebar-close {display: none }
+    .no-close .ui-dialog-titlebar-close {
+        display: none;
+    }
+
+    .no-close .ui-dialog-titlebar {
+        color: white;
+        backgroud-color: #04AA6D;
+    }
 
   </style>
 
@@ -213,9 +220,12 @@
         $("body").on("click", "a.shoppingcart", function() {
 
             $( ".cart_dialog" ).dialog({
+              dialogClass: "no-close",
+              width: 200,
               position: { my: "center", at: "center", of: window },
               modal:true,
               title: "Shopping Cart",
+              resizable: false,
               buttons: [
                 {
                   text: "Yes, please",
