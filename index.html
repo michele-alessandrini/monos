@@ -227,6 +227,15 @@
               resizable: false,
               buttons: [
                 {
+                  text: "No, keep shopping",
+                  icon: "ui-icon-close",
+                  click: function() {
+
+                    $( this ).dialog( "close" );
+                  }
+
+                },
+                {
                   text: "Yes, please",
                   icon: "ui-icon-trash",
                   click: function() {
@@ -243,16 +252,6 @@
                     $(this).dialog("close");
 
                   }
-
-                },
-                {
-                  text: "Cancel",
-                  icon: "ui-icon-close",
-                  click: function() {
-
-                    $( this ).dialog( "close" );
-                  }
-
                 }
               ]
           }).text("Do you want to empty your shopping cart?");
